@@ -7,14 +7,17 @@ import {
   BarChart3,
   CheckCircle,
   Award,
+  DollarSign,
+  Target,
 } from "lucide-react";
+import { AnimatedMetricCard, AnimatedCounter, AnimatedSectorBar } from "@/components/ui/animated-counter";
 
 export default function Portfolio() {
   const portfolioMetrics = [
-    { label: "Portfolio Companies", value: "150+", icon: "🏢" },
-    { label: "Average IRR", value: "18.5%", icon: "📈" },
-    { label: "Average MOIC", value: "2.3x", icon: "💰" },
-    { label: "Successful Exits", value: "94%", icon: "✓" },
+    { label: "Portfolio Companies", value: "150+", icon: Building2 },
+    { label: "Average IRR", value: "18.5%", icon: TrendingUp },
+    { label: "Average MOIC", value: "2.3x", icon: DollarSign },
+    { label: "Successful Exits", value: "94%", icon: Target },
   ];
 
   const sectors = [
@@ -208,36 +211,40 @@ export default function Portfolio() {
       </section>
 
       {/* Portfolio Metrics Dashboard */}
-      <section className="py-16 md:py-24 bg-muted">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center">
+      <section className="py-12 xs:py-16 sm:py-20 md:py-24 bg-muted dark:bg-muted/50">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-8 xs:mb-12 text-center">
             Portfolio Performance Overview
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 sm:gap-8">
             {portfolioMetrics.map((metric, index) => (
-              <div
+              <AnimatedMetricCard
                 key={index}
-                className="bg-white rounded-lg p-8 border border-border text-center"
-              >
-                <div className="text-4xl mb-3">{metric.icon}</div>
-                <p className="text-4xl font-bold text-primary mb-2">
-                  {metric.value}
-                </p>
-                <p className="text-muted-foreground">{metric.label}</p>
-              </div>
+                value={metric.value}
+                label={metric.label}
+                icon={metric.icon}
+                delay={index * 150}
+              />
             ))}
           </div>
 
-          <div className="mt-12 bg-white rounded-lg p-8 border border-border">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-8 xs:mt-12 bg-card dark:bg-card rounded-lg p-4 xs:p-6 sm:p-8 border border-border shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 xs:gap-8">
               <div>
                 <h4 className="font-bold text-primary mb-3 flex items-center gap-2">
                   <BarChart3 className="w-5 h-5 text-accent" />
                   Average Hold Period
                 </h4>
                 <p className="text-3xl font-bold text-primary mb-2">
-                  5.2 years
+                  <AnimatedCounter
+                    end={5.2}
+                    suffix=" years"
+                    decimals={1}
+                    duration={2000}
+                    delay={800}
+                    easing="easeOut"
+                  />
                 </p>
                 <p className="text-sm text-muted-foreground">
                   Allowing adequate time for value creation and market
@@ -249,9 +256,29 @@ export default function Portfolio() {
                   <TrendingUp className="w-5 h-5 text-accent" />
                   Entry EBITDA Range
                 </h4>
-                <p className="text-3xl font-bold text-primary mb-2">
-                  $10M - $100M
-                </p>
+                <div className="text-3xl font-bold text-primary mb-2 flex items-center gap-2 flex-wrap">
+                  <span className="bg-gradient-to-r from-accent/20 to-accent/10 px-3 py-1 rounded-lg border border-accent/30">
+                    <AnimatedCounter
+                      end={10}
+                      prefix="$"
+                      suffix="M"
+                      duration={1500}
+                      delay={1000}
+                      easing="easeOut"
+                    />
+                  </span>
+                  <span className="text-muted-foreground">to</span>
+                  <span className="bg-gradient-to-r from-accent/20 to-accent/10 px-3 py-1 rounded-lg border border-accent/30">
+                    <AnimatedCounter
+                      end={100}
+                      prefix="$"
+                      suffix="M"
+                      duration={2000}
+                      delay={1200}
+                      easing="easeOut"
+                    />
+                  </span>
+                </div>
                 <p className="text-sm text-muted-foreground">
                   Sweet spot for value creation and operational improvements
                 </p>
@@ -261,10 +288,46 @@ export default function Portfolio() {
                   <Award className="w-5 h-5 text-accent" />
                   Value Creation Sources
                 </h4>
-                <div className="text-sm text-muted-foreground space-y-1">
-                  <p>• Organic growth (40%)</p>
-                  <p>• Add-on acquisitions (35%)</p>
-                  <p>• Multiple expansion (25%)</p>
+                <div className="text-sm text-muted-foreground space-y-2">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span>• Organic growth</span>
+                    <span className="bg-accent/10 px-2 py-1 rounded text-accent font-medium">
+                      <AnimatedCounter
+                        end={40}
+                        suffix="%"
+                        duration={1800}
+                        delay={1400}
+                        easing="easeOut"
+                        className="inline"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span>• Add-on acquisitions</span>
+                    <span className="bg-accent/10 px-2 py-1 rounded text-accent font-medium">
+                      <AnimatedCounter
+                        end={35}
+                        suffix="%"
+                        duration={1800}
+                        delay={1600}
+                        easing="easeOut"
+                        className="inline"
+                      />
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span>• Multiple expansion</span>
+                    <span className="bg-accent/10 px-2 py-1 rounded text-accent font-medium">
+                      <AnimatedCounter
+                        end={25}
+                        suffix="%"
+                        duration={1800}
+                        delay={1800}
+                        easing="easeOut"
+                        className="inline"
+                      />
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -286,59 +349,52 @@ export default function Portfolio() {
                   Portfolio Allocation by Sector
                 </h3>
                 <div className="space-y-4">
-                  {sectors.map((sector, index) => (
-                    <div key={index}>
-                      <div className="flex items-center justify-between mb-2">
-                        <p className="font-semibold text-foreground text-sm">
-                          {sector.name}
-                        </p>
-                        <p className="text-sm font-bold text-accent">
-                          {sector.allocation}
-                        </p>
-                      </div>
-                      <div className="w-full bg-border rounded-full h-2">
-                        <div
-                          className="bg-accent h-2 rounded-full"
-                          style={{ width: sector.allocation }}
-                        ></div>
-                      </div>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {sector.companies} companies | Avg IRR:{" "}
-                        {sector.avgReturn}
-                      </p>
-                    </div>
-                  ))}
+                  {sectors.map((sector, index) => {
+                    const percentage = parseInt(sector.allocation.replace('%', ''));
+                    const companies = sector.companies;
+                    const avgReturn = parseFloat(sector.avgReturn.replace('%', ''));
+                    
+                    return (
+                      <AnimatedSectorBar
+                        key={index}
+                        name={sector.name}
+                        percentage={percentage}
+                        companies={companies}
+                        avgReturn={avgReturn}
+                        delay={index * 200}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white rounded-lg p-6 border border-border">
+              <div className="bg-white rounded-lg p-6 border border-border hover:shadow-lg transition-all duration-300 group">
                 <h4 className="font-bold text-primary mb-4 flex items-center gap-2">
-                  <Building2 className="w-5 h-5 text-accent" />
+                  <Building2 className="w-5 h-5 text-accent group-hover:scale-110 transition-transform duration-300" />
                   Sector Strategy
                 </h4>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4 group-hover:text-foreground transition-colors duration-300">
                   Our portfolio is strategically diversified across resilient,
                   cash-generative sectors. We focus on industries with:
                 </p>
                 <ul className="space-y-2">
-                  <li className="flex gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Favorable long-term growth trends</span>
-                  </li>
-                  <li className="flex gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Recurring revenue models</span>
-                  </li>
-                  <li className="flex gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Resilience through economic cycles</span>
-                  </li>
-                  <li className="flex gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                    <span>Opportunities for operational leverage</span>
-                  </li>
+                  {[
+                    "Favorable long-term growth trends",
+                    "Recurring revenue models", 
+                    "Resilience through economic cycles",
+                    "Opportunities for operational leverage"
+                  ].map((item, index) => (
+                    <li 
+                      key={index}
+                      className="flex gap-2 text-sm transform transition-all duration-300 hover:translate-x-2 hover:text-accent"
+                      style={{ transitionDelay: `${index * 100}ms` }}
+                    >
+                      <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-0.5 transition-all duration-300 hover:scale-110" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -347,19 +403,39 @@ export default function Portfolio() {
                   Largest Sector Exposures
                 </h4>
                 <div className="space-y-3">
-                  {sectors.slice(0, 3).map((sector, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between"
-                    >
-                      <p className="text-sm font-semibold text-foreground">
-                        {sector.name}
-                      </p>
-                      <p className="text-sm font-bold text-primary">
-                        {sector.allocation}
-                      </p>
-                    </div>
-                  ))}
+                  {sectors.slice(0, 3).map((sector, index) => {
+                    const percentage = parseInt(sector.allocation.replace('%', ''));
+                    return (
+                      <div
+                        key={index}
+                        className="flex items-center justify-between group hover:bg-accent/5 p-2 rounded transition-colors duration-200"
+                      >
+                        <p className="text-sm font-semibold text-foreground group-hover:text-accent transition-colors duration-200">
+                          {sector.name}
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <div className="w-16 bg-border rounded-full h-1.5 overflow-hidden">
+                            <div 
+                              className="bg-accent h-full rounded-full transition-all duration-1000 ease-out"
+                              style={{ 
+                                width: `${percentage * 4}%`, // Scale for visual effect
+                                transitionDelay: `${index * 150}ms`
+                              }}
+                            />
+                          </div>
+                          <AnimatedCounter
+                            end={percentage}
+                            suffix="%"
+                            duration={1500}
+                            delay={index * 150 + 300}
+                            easing="easeOut"
+                            triggerOnView={true}
+                            className="text-sm font-bold text-primary min-w-[2.5rem] text-right"
+                          />
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

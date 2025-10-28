@@ -7,10 +7,42 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: {
+        DEFAULT: "1rem",
+        xs: "1rem",
+        sm: "1.5rem",
+        md: "2rem",
+        lg: "2rem",
+        xl: "2.5rem",
+        "2xl": "3rem",
+      },
       screens: {
+        xs: "480px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
         "2xl": "1400px",
       },
+    },
+    screens: {
+      xs: "320px",
+      sm: "480px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      // Device-specific breakpoints
+      "mobile-s": "320px",
+      "mobile-m": "375px", 
+      "mobile-l": "425px",
+      "tablet": "768px",
+      "tablet-lg": "1024px",
+      "desktop": "1280px",
+      "desktop-lg": "1440px",
+      // Orientation breakpoints
+      "landscape": { "raw": "(orientation: landscape)" },
+      "portrait": { "raw": "(orientation: portrait)" },
     },
     extend: {
       colors: {

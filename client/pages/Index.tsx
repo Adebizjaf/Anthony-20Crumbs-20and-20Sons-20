@@ -1,19 +1,21 @@
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { ArrowRight, BarChart3, Shield, TrendingUp, Users } from "lucide-react";
+import { AnimatedStatCard } from "@/components/ui/animated-counter";
+import { AnimatedBackground, FloatingIcons } from "@/components/ui/animated-background";
 
 export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
       <section
-        className="relative overflow-hidden text-primary-foreground py-20 md:py-32"
+        className="relative overflow-hidden text-primary-foreground py-12 xs:py-16 sm:py-20 md:py-24 lg:py-32 min-h-[80vh] xs:min-h-[85vh] sm:min-h-[90vh] flex items-center"
         style={{
           backgroundImage:
             "url(https://images.pexels.com/photos/10975966/pexels-photo-10975966.jpeg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: window.innerWidth > 768 ? "fixed" : "scroll",
         }}
       >
         {/* Background overlay */}
@@ -24,38 +26,41 @@ export default function Index() {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl"></div>
         </div>
 
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-accent/20 rounded-full mb-6">
-              <p className="text-sm font-semibold text-accent">Est. 1957</p>
+            <div className="inline-block px-3 xs:px-4 py-1.5 xs:py-2 bg-accent/20 rounded-full mb-4 xs:mb-6">
+              <p className="text-xs xs:text-sm font-semibold text-accent">Est. 1957</p>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              67 Years of Generational
-              <br />
-              <span className="text-accent">Private Equity Excellence</span>
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 xs:mb-6 leading-tight px-2 xs:px-0">
+              <span className="block xs:inline">67 Years of</span> 
+              <span className="block xs:inline"> Generational</span>
+              <br className="hidden xs:block" />
+              <span className="text-accent block xs:inline">Private Equity Excellence</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-6 xs:mb-8 sm:mb-10 max-w-xs xs:max-w-sm sm:max-w-xl md:max-w-2xl mx-auto px-2 xs:px-4 sm:px-0 leading-relaxed">
               Anthony Crumbs & Sons brings decades of expertise, disciplined
               investment philosophy, and a commitment to creating lasting value
               for our clients and portfolio companies.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col xs:flex-row gap-3 xs:gap-4 justify-center px-4 xs:px-0 max-w-md xs:max-w-none mx-auto">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
+                className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-4 xs:px-6 sm:px-8 py-3 xs:py-3.5 rounded-lg font-semibold hover:bg-opacity-90 transition-all text-sm xs:text-base shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation"
               >
-                Request a Consultation
-                <ArrowRight className="w-5 h-5" />
+                <span className="xs:hidden">Get Consultation</span>
+                <span className="hidden xs:inline">Request a Consultation</span>
+                <ArrowRight className="w-4 h-4 xs:w-5 xs:h-5" />
               </Link>
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary-foreground hover:text-primary transition-all"
+                className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground text-primary-foreground px-4 xs:px-6 sm:px-8 py-3 xs:py-3.5 rounded-lg font-semibold hover:bg-primary-foreground hover:text-primary transition-all text-sm xs:text-base shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98] touch-manipulation"
               >
-                Learn Our Story
-                <ArrowRight className="w-5 h-5" />
+                <span className="xs:hidden">Our Story</span>
+                <span className="hidden xs:inline">Learn Our Story</span>
+                <ArrowRight className="w-4 h-4 xs:w-5 xs:h-5" />
               </Link>
             </div>
           </div>
@@ -63,37 +68,54 @@ export default function Index() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 md:py-20 bg-muted">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">67</div>
-              <p className="text-muted-foreground">Years of Experience</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">$2.3B</div>
-              <p className="text-muted-foreground">Assets Under Management</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">150+</div>
-              <p className="text-muted-foreground">Portfolio Companies</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-primary mb-2">3</div>
-              <p className="text-muted-foreground">Generations of Leadership</p>
-            </div>
+      <section className="py-8 xs:py-12 sm:py-16 md:py-20 bg-muted dark:bg-muted/50 overflow-hidden relative">
+        <AnimatedBackground particleCount={12} />
+        <FloatingIcons 
+          icons={[
+            <TrendingUp className="w-8 h-8" />,
+            <BarChart3 className="w-6 h-6" />,
+            <Users className="w-7 h-7" />,
+            <Shield className="w-6 h-6" />
+          ]} 
+        />
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 xs:gap-6 sm:gap-8">
+            <AnimatedStatCard
+              value="67"
+              label="Years of Experience"
+              delay={100}
+              duration={2000}
+            />
+            <AnimatedStatCard
+              value="$2.3B"
+              label="Assets Under Management"
+              delay={200}
+              duration={2200}
+            />
+            <AnimatedStatCard
+              value="150+"
+              label="Portfolio Companies"
+              delay={300}
+              duration={2400}
+            />
+            <AnimatedStatCard
+              value="3"
+              label="Generations of Leadership"
+              delay={400}
+              duration={1800}
+            />
           </div>
         </div>
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+      <section className="py-12 xs:py-16 sm:py-20 md:py-24 bg-background">
+        <div className="container mx-auto px-3 xs:px-4 sm:px-6 md:px-8">
+          <div className="max-w-3xl mx-auto text-center mb-8 xs:mb-12 sm:mb-16">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-3 xs:mb-4 px-2 xs:px-0">
               Our Core Services
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-sm xs:text-base sm:text-lg text-muted-foreground px-4 xs:px-2 sm:px-0 leading-relaxed">
               We offer comprehensive private equity solutions tailored to meet
               the unique needs of our institutional and family office clients.
             </p>

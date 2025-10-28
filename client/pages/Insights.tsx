@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import {
   Calendar,
@@ -26,7 +27,7 @@ export default function Insights() {
     category: "thought-leadership",
     author: "Robert Crumbs, CIO",
     date: "March 15, 2024",
-    image: "gradient-to-br from-accent/20 to-accent/10",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&crop=center&auto=format&q=80",
   };
 
   const insights = [
@@ -39,6 +40,7 @@ export default function Insights() {
       author: "David Thompson, VP Healthcare",
       date: "March 10, 2024",
       readTime: "5 min",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 3,
@@ -49,6 +51,7 @@ export default function Insights() {
       author: "Jennifer Martinez, VP Business Services",
       date: "March 5, 2024",
       readTime: "7 min",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 4,
@@ -59,6 +62,7 @@ export default function Insights() {
       author: "Sarah Chen, VP Technology",
       date: "February 28, 2024",
       readTime: "6 min",
+      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 5,
@@ -69,6 +73,7 @@ export default function Insights() {
       author: "Catherine Walsh, Head of Investor Relations",
       date: "February 20, 2024",
       readTime: "3 min",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 6,
@@ -79,6 +84,7 @@ export default function Insights() {
       author: "Robert Crumbs, CIO",
       date: "February 15, 2024",
       readTime: "8 min",
+      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 7,
@@ -89,6 +95,7 @@ export default function Insights() {
       author: "Michael Foster, Director of Operations",
       date: "February 10, 2024",
       readTime: "6 min",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 8,
@@ -99,6 +106,7 @@ export default function Insights() {
       author: "Robert Crumbs, CIO",
       date: "February 5, 2024",
       readTime: "2 min",
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 9,
@@ -109,6 +117,7 @@ export default function Insights() {
       author: "Jennifer Martinez, VP Business Services",
       date: "January 30, 2024",
       readTime: "9 min",
+      image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
     {
       id: 10,
@@ -119,6 +128,7 @@ export default function Insights() {
       author: "David Thompson, VP Healthcare",
       date: "January 25, 2024",
       readTime: "5 min",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop&crop=center&auto=format&q=80",
     },
   ];
 
@@ -165,9 +175,16 @@ export default function Insights() {
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div
-              className={`bg-gradient-to-br ${featuredArticle.image} rounded-lg h-96 border border-accent/20`}
-            ></div>
+            <Link to={`/insights/${featuredArticle.id}`} className="block">
+              <div className="relative rounded-lg h-96 overflow-hidden border border-accent/20 group cursor-pointer">
+                <img 
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
+              </div>
+            </Link>
 
             <div>
               <div className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-xs font-semibold mb-4">
@@ -177,9 +194,11 @@ export default function Insights() {
                 }
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight">
-                {featuredArticle.title}
-              </h3>
+              <Link to={`/insights/${featuredArticle.id}`}>
+                <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight hover:text-accent transition-colors cursor-pointer">
+                  {featuredArticle.title}
+                </h3>
+              </Link>
 
               <p className="text-lg text-muted-foreground mb-6">
                 {featuredArticle.excerpt}
@@ -196,9 +215,11 @@ export default function Insights() {
                 </div>
               </div>
 
-              <button className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
-                Read Article <ArrowRight className="w-4 h-4" />
-              </button>
+              <Link to={`/insights/${featuredArticle.id}`}>
+                <button className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all">
+                  Read Article <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -237,62 +258,62 @@ export default function Insights() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {filteredInsights.map((article) => (
-              <article
-                key={article.id}
-                className="border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="bg-gradient-to-br from-primary/5 to-accent/5 h-48 flex items-center justify-center border-b border-border">
-                  <div className="text-center">
-                    <p className="text-sm text-muted-foreground">
-                      Featured Image
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span
-                      className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        article.category === "market-insights"
-                          ? "bg-blue-100 text-blue-700"
-                          : article.category === "thought-leadership"
-                            ? "bg-purple-100 text-purple-700"
-                            : "bg-green-100 text-green-700"
-                      }`}
-                    >
-                      {
-                        categories.find((c) => c.value === article.category)
-                          ?.label
-                      }
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {article.readTime}
-                    </span>
+              <Link key={article.id} to={`/insights/${article.id}`}>
+                <article className="border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 group cursor-pointer h-full">
+                  <div className="relative h-48 overflow-hidden border-b border-border">
+                    <img 
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-primary mb-3 leading-tight hover:text-accent transition-colors cursor-pointer">
-                    {article.title}
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm mb-4">
-                    {article.excerpt}
-                  </p>
-
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex flex-col sm:flex-row gap-3 text-xs text-muted-foreground">
-                      <div className="flex items-center gap-1">
-                        <User className="w-3 h-3 text-accent" />
-                        {article.author}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3 text-accent" />
-                        {article.date}
-                      </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span
+                        className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          article.category === "market-insights"
+                            ? "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300"
+                            : article.category === "thought-leadership"
+                              ? "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300"
+                              : "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300"
+                        }`}
+                      >
+                        {
+                          categories.find((c) => c.value === article.category)
+                            ?.label
+                        }
+                      </span>
+                      <span className="text-xs text-muted-foreground">
+                        {article.readTime}
+                      </span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-accent cursor-pointer hover:translate-x-1 transition-transform" />
+
+                    <h3 className="text-xl font-bold text-primary mb-3 leading-tight group-hover:text-accent transition-colors">
+                      {article.title}
+                    </h3>
+
+                    <p className="text-muted-foreground text-sm mb-4">
+                      {article.excerpt}
+                    </p>
+
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                      <div className="flex flex-col sm:flex-row gap-3 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <User className="w-3 h-3 text-accent" />
+                          {article.author}
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Calendar className="w-3 h-3 text-accent" />
+                          {article.date}
+                        </div>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-accent group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
-                </div>
-              </article>
+                </article>
+              </Link>
             ))}
           </div>
 
