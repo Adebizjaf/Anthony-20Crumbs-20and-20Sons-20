@@ -38,7 +38,7 @@ export default function About() {
             <div
               className="relative overflow-hidden rounded-lg h-96 flex items-center justify-center border border-accent/20"
               style={{
-                backgroundImage: 'url(https://images.pexels.com/photos/11580389/pexels-photo-11580389.jpeg)',
+                backgroundImage: 'url(https://images.pexels.com/photos/114797/pexels-photo-114797.jpeg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
