@@ -9,10 +9,11 @@ export default function Index() {
       <section
         className="relative overflow-hidden text-primary-foreground py-20 md:py-32"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/10975966/pexels-photo-10975966.jpeg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
+          backgroundImage:
+            "url(https://images.pexels.com/photos/10975966/pexels-photo-10975966.jpeg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
         }}
       >
         {/* Background overlay */}
@@ -30,12 +31,15 @@ export default function Index() {
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              67 Years of Generational<br />
+              67 Years of Generational
+              <br />
               <span className="text-accent">Private Equity Excellence</span>
             </h1>
 
             <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 max-w-2xl mx-auto">
-              Anthony Crumbs & Sons brings decades of expertise, disciplined investment philosophy, and a commitment to creating lasting value for our clients and portfolio companies.
+              Anthony Crumbs & Sons brings decades of expertise, disciplined
+              investment philosophy, and a commitment to creating lasting value
+              for our clients and portfolio companies.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -90,7 +94,8 @@ export default function Index() {
               Our Core Services
             </h2>
             <p className="text-lg text-muted-foreground">
-              We offer comprehensive private equity solutions tailored to meet the unique needs of our institutional and family office clients.
+              We offer comprehensive private equity solutions tailored to meet
+              the unique needs of our institutional and family office clients.
             </p>
           </div>
 
@@ -100,9 +105,13 @@ export default function Index() {
               <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
                 <BarChart3 className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">Fund Management</h3>
+              <h3 className="text-xl font-bold text-primary mb-3">
+                Fund Management
+              </h3>
               <p className="text-muted-foreground mb-4">
-                Our diversified fund vehicles are designed to deliver superior risk-adjusted returns through active portfolio management and operational excellence.
+                Our diversified fund vehicles are designed to deliver superior
+                risk-adjusted returns through active portfolio management and
+                operational excellence.
               </p>
               <Link
                 to="/services"
@@ -117,9 +126,13 @@ export default function Index() {
               <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">Advisory Services</h3>
+              <h3 className="text-xl font-bold text-primary mb-3">
+                Advisory Services
+              </h3>
               <p className="text-muted-foreground mb-4">
-                We provide strategic advice on fund structuring, investment strategy, governance, and operational improvements for portfolio optimization.
+                We provide strategic advice on fund structuring, investment
+                strategy, governance, and operational improvements for portfolio
+                optimization.
               </p>
               <Link
                 to="/services"
@@ -134,9 +147,13 @@ export default function Index() {
               <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
                 <TrendingUp className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">Investment Strategy</h3>
+              <h3 className="text-xl font-bold text-primary mb-3">
+                Investment Strategy
+              </h3>
               <p className="text-muted-foreground mb-4">
-                Our disciplined investment thesis combines sector expertise, market intelligence, and rigorous due diligence to identify compelling opportunities.
+                Our disciplined investment thesis combines sector expertise,
+                market intelligence, and rigorous due diligence to identify
+                compelling opportunities.
               </p>
               <Link
                 to="/services"
@@ -151,9 +168,13 @@ export default function Index() {
               <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-6 h-6 text-accent" />
               </div>
-              <h3 className="text-xl font-bold text-primary mb-3">Portfolio Management</h3>
+              <h3 className="text-xl font-bold text-primary mb-3">
+                Portfolio Management
+              </h3>
               <p className="text-muted-foreground mb-4">
-                We actively manage and nurture our portfolio companies, adding value through operational improvements and strategic growth initiatives.
+                We actively manage and nurture our portfolio companies, adding
+                value through operational improvements and strategic growth
+                initiatives.
               </p>
               <Link
                 to="/services"
@@ -174,7 +195,10 @@ export default function Index() {
               Ready to Partner With Us?
             </h2>
             <p className="text-lg text-primary-foreground/90 mb-10">
-              Whether you're an institutional investor, family office, or potential portfolio company, we're committed to building long-term relationships based on trust, transparency, and exceptional results.
+              Whether you're an institutional investor, family office, or
+              potential portfolio company, we're committed to building long-term
+              relationships based on trust, transparency, and exceptional
+              results.
             </p>
             <Link
               to="/contact"

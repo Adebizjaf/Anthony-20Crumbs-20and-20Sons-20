@@ -22,10 +22,14 @@ export default function Navigation() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">AC</span>
+              <span className="text-primary-foreground font-bold text-lg">
+                AC
+              </span>
             </div>
             <div className="hidden sm:block">
-              <p className="text-primary font-semibold text-sm">Anthony Crumbs</p>
+              <p className="text-primary font-semibold text-sm">
+                Anthony Crumbs
+              </p>
               <p className="text-muted-foreground text-xs">& Sons</p>
             </div>
           </Link>

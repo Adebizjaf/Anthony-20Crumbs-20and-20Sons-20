@@ -4,29 +4,33 @@ import { ArrowLeft } from "lucide-react";
 
 export default function Placeholder() {
   const location = useLocation();
-  
+
   const pageInfo: Record<string, { title: string; description: string }> = {
     "/services": {
       title: "Services",
-      description: "Explore our comprehensive suite of private equity and investment advisory services."
+      description:
+        "Explore our comprehensive suite of private equity and investment advisory services.",
     },
     "/portfolio": {
       title: "Portfolio",
-      description: "Review our portfolio companies and track record of value creation."
+      description:
+        "Review our portfolio companies and track record of value creation.",
     },
     "/insights": {
       title: "Insights & News",
-      description: "Stay informed with our latest market commentary, industry insights, and firm announcements."
+      description:
+        "Stay informed with our latest market commentary, industry insights, and firm announcements.",
     },
     "/contact": {
       title: "Contact Us",
-      description: "Get in touch with our team to discuss investment opportunities or request a consultation."
-    }
+      description:
+        "Get in touch with our team to discuss investment opportunities or request a consultation.",
+    },
   };
 
   const info = pageInfo[location.pathname] || {
     title: "Page",
-    description: "This page is coming soon."
+    description: "This page is coming soon.",
   };
 
   return (
@@ -40,13 +44,15 @@ export default function Placeholder() {
             <p className="text-lg text-muted-foreground mb-8">
               {info.description}
             </p>
-            
+
             <div className="bg-muted rounded-lg p-8 mb-8 border border-border">
               <p className="text-foreground mb-4">
-                This page is being developed with premium content tailored to your needs.
+                This page is being developed with premium content tailored to
+                your needs.
               </p>
               <p className="text-muted-foreground text-sm">
-                Continue exploring our site or reach out to discuss how we can assist you with your investment goals.
+                Continue exploring our site or reach out to discuss how we can
+                assist you with your investment goals.
               </p>
             </div>
 
