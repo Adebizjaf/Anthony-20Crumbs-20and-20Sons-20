@@ -19,12 +19,12 @@ export default function App() {
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Placeholder />} />
-            <Route path="/portfolio" element={<Placeholder />} />
-            <Route path="/insights" element={<Placeholder />} />
-            <Route path="/contact" element={<Placeholder />} />
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Placeholder />} />
+          <Route path="/insights" element={<Placeholder />} />
+          <Route path="/contact" element={<Placeholder />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
