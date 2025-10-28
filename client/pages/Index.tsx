@@ -9,9 +9,10 @@ export default function Index() {
       <section
         className="relative overflow-hidden text-primary-foreground py-20 md:py-32"
         style={{
-          backgroundImage: 'url(https://images.pexels.com/photos/210553/pexels-photo-210553.jpeg)',
+          backgroundImage: 'url(https://images.pexels.com/photos/10975966/pexels-photo-10975966.jpeg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
         }}
       >
         {/* Background overlay */}
