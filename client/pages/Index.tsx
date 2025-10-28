@@ -6,7 +6,17 @@ export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 text-primary-foreground py-20 md:py-32">
+      <section
+        className="relative overflow-hidden text-primary-foreground py-20 md:py-32"
+        style={{
+          backgroundImage: 'url(https://images.pexels.com/photos/210553/pexels-photo-210553.jpeg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Background overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90 opacity-85"></div>
+
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl"></div>
@@ -14,14 +24,8 @@ export default function Index() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-accent/20 rounded-full mb-6 relative overflow-hidden">
-              <div
-                className="absolute inset-0 opacity-30 bg-cover bg-center"
-                style={{
-                  backgroundImage: 'url(https://images.pexels.com/photos/210553/pexels-photo-210553.jpeg)',
-                }}
-              ></div>
-              <p className="text-sm font-semibold text-accent relative z-10">Est. 1957</p>
+            <div className="inline-block px-4 py-2 bg-accent/20 rounded-full mb-6">
+              <p className="text-sm font-semibold text-accent">Est. 1957</p>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
