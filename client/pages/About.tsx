@@ -38,13 +38,13 @@ export default function About() {
             <div
               className="relative overflow-hidden rounded-lg h-96 flex items-center justify-center border border-accent/20"
               style={{
-                backgroundImage: 'url(https://images.pexels.com/photos/14660934/pexels-photo-14660934.jpeg)',
+                backgroundImage: 'url(https://images.pexels.com/photos/11580389/pexels-photo-11580389.jpeg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             >
               {/* Overlay for readability */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/40 to-accent/40"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/50 to-primary/50"></div>
 
               <div className="text-center relative z-10">
                 <div className="text-6xl font-bold text-accent mb-2">1957</div>
