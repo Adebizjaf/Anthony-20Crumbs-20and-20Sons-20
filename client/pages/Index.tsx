@@ -14,8 +14,14 @@ export default function Index() {
 
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-block px-4 py-2 bg-accent/20 rounded-full mb-6">
-              <p className="text-sm font-semibold text-accent">Est. 1957</p>
+            <div className="inline-block px-4 py-2 bg-accent/20 rounded-full mb-6 relative overflow-hidden">
+              <div
+                className="absolute inset-0 opacity-30 bg-cover bg-center"
+                style={{
+                  backgroundImage: 'url(https://images.pexels.com/photos/210553/pexels-photo-210553.jpeg)',
+                }}
+              ></div>
+              <p className="text-sm font-semibold text-accent relative z-10">Est. 1957</p>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
