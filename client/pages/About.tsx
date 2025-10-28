@@ -35,10 +35,20 @@ export default function About() {
                 Today, our third generation of leadership continues to uphold the principles that Anthony established while embracing innovation and adapting to evolving market conditions.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-accent/10 to-accent/5 rounded-lg h-96 flex items-center justify-center border border-accent/20">
-              <div className="text-center">
+            <div
+              className="relative overflow-hidden rounded-lg h-96 flex items-center justify-center border border-accent/20"
+              style={{
+                backgroundImage: 'url(https://images.pexels.com/photos/14660934/pexels-photo-14660934.jpeg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            >
+              {/* Overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/40 to-accent/40"></div>
+
+              <div className="text-center relative z-10">
                 <div className="text-6xl font-bold text-accent mb-2">1957</div>
-                <p className="text-foreground font-semibold">Founding Year</p>
+                <p className="text-accent-foreground font-semibold">Founding Year</p>
               </div>
             </div>
           </div>
